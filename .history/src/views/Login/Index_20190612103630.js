@@ -5,7 +5,8 @@ import './css/Styles.css'
 import './css/Demo.css'
 import './css/Loaders.css'
 // import './css/Default.css'
-import Particles from 'reactparticles.js'
+// import '../../utils/particles.js'
+import '../../utils/app.json'
 
 export default class Login extends Component {
     componentDidMount(){
@@ -62,7 +63,7 @@ export default class Login extends Component {
     render (){
         return (
             <div>
-    			<Particles id="test-particles" config="test-particles.json"/>
+    			<div id="particles-js"></div>
                 <div className='login'>
                     <div className='login_title'>
                         <span>请登录</span>

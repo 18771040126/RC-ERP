@@ -62,7 +62,7 @@ export default class Login extends Component {
     render (){
         return (
             <div>
-    			<Particles id="test-particles" config="test-particles.json"/>
+    			<Particles id="test-particles" config="app.json"/>
                 <div className='login'>
                     <div className='login_title'>
                         <span>请登录</span>
