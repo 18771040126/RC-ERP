@@ -1,8 +1,9 @@
-import React,{Component,Fragment} from 'react';
+import React,{Component} from 'react';
 import $ from 'jquery'
 import './css/Styles.css'
 import './css/Demo.css'
 import './css/Loaders.css'
+// import './css/Default.css'
 import Particles from 'reactparticles.js'
 
 export default class Login extends Component {
@@ -81,8 +82,10 @@ export default class Login extends Component {
 	
     render (){
         return (
-            <Fragment>
+            <div>
+				{/* 背景蜘蛛丝 */}
     			<Particles id="test-particles" config="test-particles.json"/>
+
 				<div className='login'>
 					<div className='login_title'>
 						<span>请登录</span>
@@ -136,8 +139,7 @@ export default class Login extends Component {
 					<p>认证中...</p>
 				</div>
                 <div className="OverWindows"></div>
-				
-            </Fragment>
+            </div>
         )
     }
 }

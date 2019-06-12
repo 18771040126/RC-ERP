@@ -82,62 +82,12 @@ export default class Login extends Component {
     render (){
         return (
             <Fragment>
+				{/* 背景蜘蛛丝 */}
     			<Particles id="test-particles" config="test-particles.json"/>
-				<div className='login'>
-					<div className='login_title'>
-						<span>请登录</span>
-					</div>
-					<div className='login_fields'>
-						<div className='login_fields__user'>
-							<div className='icon'>
-								<img alt="" src={require('./img/user_icon_copy.png')} />
-							</div>
-							<input type='text' name="login"  maxlength="16" autocomplete="off" placeholder='用户名' />
-							<div className='validation'>
-								<img alt="" src={require('./img/tick.png')}/>
-							</div>
-						</div>
-						<div className='login_fields__password'>
-                            <div className='icon'>
-                                <img alt="" src={require('./img/lock_icon_copy.png')} />
-                            </div>
-                            <input type='text' name="pwd"  maxlength="16"  placeholder='密码' />
-                            <div className='validation'>
-                                <img alt="" src={require('./img/tick.png')} />
-                            </div>
-                        </div>
-						<div className='login_fields__password'>
-                            <div className='icon'>
-                                <img alt="" src={require('./img/key.png')} />
-                            </div>
-                            <input type='text' name="code"  maxlength="4" placeholder='验证码' name="ValidateNum" />
-                            <div className='validation' style={{opacity: 1,right: '-5px',top: '-3px'}}>
-                                <canvas className="J_codeimg" id="myCanvas" onClick={this.Code}></canvas>
-                            </div>
-                        </div>
-						<div className='login_fields__submit'>
-                            <input type='button' value='登录' />
-                        </div>
-					</div>
-					<div className='success'></div>	
-					<div className='disclaimer'>
-						<p>欢迎登陆后台管理系统</p>
-					</div>
-				</div>
 				
-				<div className='authent'>
-					<div className="loader" style={{height: '44px',width: '44px',marginLeft: '28px'}}>
-						<div className="loader-inner ball-clip-rotate-multiple">
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-					</div>
-					<p>认证中...</p>
-				</div>
-                <div className="OverWindows"></div>
 				
             </Fragment>
+			<div></div>
         )
     }
 }
