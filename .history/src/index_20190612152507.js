@@ -5,11 +5,11 @@ import './index.css';
 // import Index from './views/Home/Index'
 import Login from './views/Login/Index'
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter} from 'react-router-dom';
+// import { BrowserRouter} from 'react-router-dom';
 
 ReactDOM.render(
     <BrowserRouter>
-        <Login />
+        <Login/>
     </BrowserRouter>
     , document.getElementById('root'));
 

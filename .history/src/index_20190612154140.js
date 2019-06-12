@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
 // import Index from './views/Home/Index'
-import Login from './views/Login/Index'
+// import Login from './views/Login/Index'
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter} from 'react-router-dom';
 
 ReactDOM.render(
     <BrowserRouter>
-        <Login />
+        <App />
     </BrowserRouter>
     , document.getElementById('root'));
 

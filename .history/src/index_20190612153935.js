@@ -4,6 +4,7 @@ import './index.css';
 // import App from './App';
 // import Index from './views/Home/Index'
 import Login from './views/Login/Index'
+import App from './App'
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter} from 'react-router-dom';
 

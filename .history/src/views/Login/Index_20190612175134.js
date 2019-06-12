@@ -54,7 +54,9 @@ export default class Login extends Component {
 
 			setTimeout( function() {
 				$('.authent').show().animate({ right: 90 });
-				$('.authent').animate({ opacity: 0 }).addClass('visible');
+				$('.authent').animate({ opacity: 0 }, {
+					
+				}).addClass('visible');
 				$('.login').removeClass('testtwo'); //平移特效
 			}, 2000);
 			setTimeout( function() {

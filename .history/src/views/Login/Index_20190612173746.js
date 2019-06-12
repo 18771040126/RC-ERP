@@ -53,8 +53,12 @@ export default class Login extends Component {
 			}, 500);
 
 			setTimeout( function() {
-				$('.authent').show().animate({ right: 90 });
-				$('.authent').animate({ opacity: 0 }).addClass('visible');
+				$('.authent').show().animate({ right: 90 }, {
+					
+				});
+				$('.authent').animate({ opacity: 0 }, {
+					
+				}).addClass('visible');
 				$('.login').removeClass('testtwo'); //平移特效
 			}, 2000);
 			setTimeout( function() {
@@ -65,7 +69,7 @@ export default class Login extends Component {
 					$('.login div').fadeOut(100);
 					$('.success').fadeIn(1000);
 					$('.success').html('登录成功');
-					
+					this.props.history.push('/alertManagement')
 
 				// 	//跳转操作
 				

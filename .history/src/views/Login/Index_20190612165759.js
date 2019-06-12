@@ -1,4 +1,5 @@
 import React,{Component,Fragment} from 'react';
+// import {HashRouter} from 'react-router-dom';
 import $ from 'jquery'
 import './css/Styles.css'
 import './css/Demo.css'
@@ -8,23 +9,23 @@ import axios from 'axios';
 
 export default class Login extends Component {
     componentDidMount(){
-	    $(document).keypress( function(e) {
+	    $(document).keypress( (e)=> {
 	        // 回车键事件  
 	        if (e.which === 13) {
 	            $('input[type="button"]').click();
 	        }
 		});
-		$('input[name="pwd"]').focus( function() {
-	        $(this).attr('type', 'password');
-	    });
-	    $('input[type="text"]').focus( function() {
+		// $('input[name="pwd"]').focus( ()=> {
+	    //     $(this).attr('type', 'password');
+	    // });
+	    $('input[type="text"]').focus( ()=> {
 	        $(this).prev().animate({ 'opacity': '1' }, 200);
 	    });
-	    $('input[type="text"],input[type="password"]').blur( function() {
+	    $('input[type="text"],input[type="password"]').blur( ()=> {
 	        $(this).prev().animate({ 'opacity': '.5' }, 200);
 		});
 		//  用户名和密码输入正确时,√
-		$('input[name="login"],input[name="pwd"]').keyup( function() {
+		$('input[name="login"],input[name="pwd"]').keyup( ()=> {
 	        var Len = $(this).val().length;
 	        if (!$(this).val() === '' && Len >= 5) {
 	            $(this).next().animate({
@@ -38,71 +39,85 @@ export default class Login extends Component {
 	            }, 200);
 	        }
 		});
-		$('input[type="button"]').click(function() {
-			$('.login').addClass('test'); //倾斜特效
-			setTimeout( function() {
-				$('.login').addClass('testtwo'); //平移特效
-			}, 300);
-			setTimeout( function() {
-				$('.authent').show().animate({ right: -320 }, {
+		// $('input[type="button"]').click(()=> {
+		// 	$('.login').addClass('test'); //倾斜特效
+		// 	setTimeout( ()=> {
+		// 		$('.login').addClass('testtwo'); //平移特效
+		// 	}, 300);
+		// 	setTimeout( ()=> {
+		// 		$('.authent').show().animate({ right: -320 }, {
 					
-				});
-				$('.authent').animate({ opacity: 1 }, {
+		// 		});
+		// 		$('.authent').animate({ opacity: 1 }, {
 					
-				}).addClass('visible');
-			}, 500);
+		// 		}).addClass('visible');
+		// 	}, 500);
 
-			setTimeout( function() {
-				$('.authent').show().animate({ right: 90 });
-				$('.authent').animate({ opacity: 0 }).addClass('visible');
-				$('.login').removeClass('testtwo'); //平移特效
-			}, 2000);
-			setTimeout( function() {
-				$('.authent').hide();
-				$('.login').removeClass('test');
-				// if (data.Status == 'ok') {
-				// 	//登录成功
-					$('.login div').fadeOut(100);
-					$('.success').fadeIn(1000);
-					$('.success').html('登录成功');
+		// 	setTimeout( ()=> {
+		// 		$('.authent').show().animate({ right: 90 }, {
+					
+		// 		});
+		// 		$('.authent').animate({ opacity: 0 }, {
+					
+		// 		}).addClass('visible');
+		// 		$('.login').removeClass('testtwo'); //平移特效
+		// 	}, 2000);
+		// 	setTimeout( ()=> {
+		// 		$('.authent').hide();
+		// 		$('.login').removeClass('test');
+		// 		// if (data.Status == 'ok') {
+		// 		// 	//登录成功
+		// 			$('.login div').fadeOut(100);
+		// 			$('.success').fadeIn(1000);
+		// 			$('.success').html('登录成功');
 					
 
-				// 	//跳转操作
+		// 		// 	//跳转操作
 				
 				
-				// } else {
-				// 	AjaxErro(data);
-				// }
-			}, 2400);
-			// setTimeout(function() {
-			// 	alert('登录成功')
-			// },3300)
-		})
-
-
-
-		// $('input[type="button"]').click(function() {
-		// 	var login = $('input[name="login"]').val();
-		// 	var pwd = $('input[name="pwd"]').val();
-		// 	if(login === ''){
-		// 		alert('请输入账号');
-		// 	}else if (pwd === ''){
-		// 		alert('请输入密码');					
-		// 	}else {
-		// 		$('.login').addClass('test'); //倾斜特效
-		// 		setTimeout(function () {
-		// 			$('.login').addClass('testtwo'); //平移特效
-		// 		}, 200);
-		// 		setTimeout(function () {
-		// 			$('.authent').show().animate({
-		// 				right: -320
-		// 			});
-		// 			$('.authent').animate({
-		// 				opacity: 1
-		// 			}).addClass('visible');
-		// 		}, 200);
-		// 	}
+		// 		// } else {
+		// 		// 	AjaxErro(data);
+		// 		// }
+		// 	}, 2400);
+		// 	// setTimeout(()=> {
+		// 	// 	alert('登录成功')
+		// 	// },3300)
 		// })
+		$('input[type="button"]').click(()=> {
+				var login = $('input[name="login"]').val();
+				var pwd = $('input[name="pwd"]').val();
+				if(login === ''){
+					alert('请输入账号');
+				}else if (pwd === ''){
+					alert('请输入密码');					
+				}else {
+					$('.login').addClass('test'); //倾斜特效
+					setTimeout(function () {
+						$('.login').addClass('testtwo'); //平移特效
+					}, 300);
+					setTimeout(function () {
+						$('.authent').show().animate({
+							right: -320
+						}, {
+							
+						});
+						$('.authent').animate({
+							opacity: 1
+						}, {
+							
+						}).addClass('visible');
+					}, 500);
+				}
+			})
+			// const _this = this;
+			// axios.get('router.json').then(res => {
+				
+			// 	_this.user_name = res.data.user_name
+			// 	_this.password = res.data.password
+			// 	console.log(_this.user_name)
+			// 	console.log(_this.password)
+		
+		
 
 	}
 	
