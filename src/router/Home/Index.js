@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Layout } from 'antd'
+import './index.css'
 
 //引入组件
 import SiderNav from '../../views/SiderNav/index'
@@ -32,8 +33,8 @@ export default class Index extends Component {
                     <Header style={{background:'#fff',padding: '0'}}>
                         <HeaderBar toggle={this.onToggle} />
                     </Header>
-                    <div style={{background:'#fff',height:'100vh'}}>
-                        <ContentMain />
+                    <div style={{background:'#fff',height:'100vh',padding: '16px 24px',border:'1px red solid'}}>
+                        <ContentMain  />
                     </div>
                 </Layout>
             </Layout>

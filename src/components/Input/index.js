@@ -1,21 +1,18 @@
 import React,{ Component } from 'react' ;
-import { Input } from 'antd'
-import './index.css'
+import Breadcrumb from '../Breadcrumb/index'
 
-const Search = Input.Search 
+
 export default class Inputs extends Component {
     render () {
         return (
             <div>
-                  <Search placeholder="input search text" style={{ width: 200 }}/>
-                  <br/>
-                  <br/>
-                  <Search 
-                        palceholder="input search text" 
-                        style={{ width: 200 }} 
-                        enterButton="Search" 
-                        />
+                <Breadcrumb arr={['Input']} />
+                <div style={{border:'1px pink solid'}}>
+                    input
+                </div>
             </div>
+
+
         )
     }
 }

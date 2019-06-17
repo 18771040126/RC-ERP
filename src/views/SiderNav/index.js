@@ -8,13 +8,13 @@ const menus = [
     {
         title: '首页',
         icon: 'home',
-        key:'/home'
+        key:'/'
     },
     {
         title: '门店管理',
         icon: 'laptop',
         key:'/store',
-        children: [
+        subs: [
             {
                 title:'临平店',
                 key:'/store/linping'
@@ -37,7 +37,7 @@ const menus = [
         title: '权限管理',
         icon: 'cluster',
         key:'/cluster',
-        children: [
+        subs: [
             {
                 title:'CEO',
                 key:'/cluster/ceo'
@@ -59,7 +59,7 @@ const menus = [
     {
         title: '仓储管理Radio',
         icon: 'edit',
-        key: '/radio'            
+        key: '/radio'
     },
     {
         title: '通用设置Button',
@@ -75,34 +75,11 @@ const menus = [
 ]
 
 export default class SiderNav extends Component {
-    constructor(){
-        super();
-        this.state = {
-            openKeys: [],
-            selectedKeys: [],
-        }
+   state = {
+        openKeys: [],
+        selectedKeys: [],
     }
-    renderMenuItem = ({key,icon, title}) => {
-        return (
-          <Menu.Item>
-                <Link to={key}>
-                    {icon && <Icon type={icon}/>}
-                    <span>{title}</span>
-                </Link>
-          </Menu.Item>
-        )
-    }
-    renderSubMenu = ({key, icon, title, children}) => {
-        return (
-          <Menu.SubMenu title={<span>{icon && <Icon type={icon}/>}<span>{title}</span></span>}>
-            {
-               children.map((item) => {
-                return item.children && item.children.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
-              })
-            }
-          </Menu.SubMenu>
-        )
-    }
+    
     onOpenChange = (openKeys)=> {
         //此函数的作用只展开当前父级菜单（父级菜单下可能还有子菜单）
         if(openKeys.length === 0 || openKeys === 1){
@@ -122,6 +99,27 @@ export default class SiderNav extends Component {
             })
         }
     }
+    renderMenuItem = ({key,icon, title}) => {
+        return (
+          <Menu.Item>
+                <Link to={key}>
+                    {icon && <Icon type={icon}/>}
+                    <span>{title}</span>
+                </Link>
+          </Menu.Item>
+        )
+    }
+    renderSubMenu = ({key, icon, title, subs}) => {
+        return (
+          <Menu.SubMenu key={key} title={<span>{icon && <Icon type={icon}/>}<span>{title}</span></span>}>
+            {
+               subs && subs.map(item => {
+                return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
+              })
+            }
+          </Menu.SubMenu>
+        )
+    }
     render (){
         return (
                 <Menu 
@@ -134,8 +132,8 @@ export default class SiderNav extends Component {
                     onClick={({key}) => this.setState({selectedKeys: [key]})}
                 >
                     {
-                        menus.map((item) => {
-                            return item.children && item.children.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
+                        menus && menus.map((item) => {
+                            return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
                         })
                     }
                 </Menu>

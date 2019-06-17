@@ -23,7 +23,8 @@ const menu = (
   );
 export default class HeaderBar extends Component {
     state = {
-        collapsed: false
+        collapsed: false,
+        user_name: ''
     }
     toggleCollapsed = ()=> {
         this.setState ({
@@ -31,6 +32,13 @@ export default class HeaderBar extends Component {
         })
         this.props.toggle()
     }
+    componentDidMount(){
+        this.user_name = JSON.parse(sessionStorage.getItem('user_name'))
+        this.setState({
+            user_name: this.user_name
+        })
+    }
+
     render (){
         return (      
   
@@ -38,7 +46,7 @@ export default class HeaderBar extends Component {
                 <Col span={8}>
                     <Icon 
                         onClick={this.toggleCollapsed} 
-                        style={{margin:" 0 30px 0 20px",fontSize: '20px'}} 
+                        style={{margin:" 0 30px 0 20px",fontSize: '20px'}}
                         type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                         />
                     <Dropdown overlay={menu}>
@@ -47,8 +55,8 @@ export default class HeaderBar extends Component {
                         </a>
                     </Dropdown>
                 </Col>
-                <Col span={16}>
-                    
+                <Col span={16} style={{paddingRight:50}}>
+                    <span style={{float:'right'}}> <Icon type="user" style={{borderRadius:'50%',backgroundColor:'#1890ff',padding:8,color:'#fff',marginRight:'5px'}}/>{this.user_name}</span>
                 </Col>
             </Row>
         )

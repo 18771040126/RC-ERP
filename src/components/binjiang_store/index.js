@@ -1,13 +1,11 @@
 import React,{ Component } from 'react' ;
-import { Button } from 'antd'
-import './index.css'
+import Breadcrumb from '../Breadcrumb/index'
+
 
 export default class Store extends Component {
   render () {
     return (
-      <div>
-           <Button type='primary'>滨江店</Button> 
-      </div>
+        <Breadcrumb arr={['滨江店']} />
     )
   }
 }

@@ -44,8 +44,8 @@ export default class Login extends Component {
 	            }, 200);
 	        }
 		});
+		$('#btn').hide()
 		$('input[type="button"]').click(function() {
-			sessionStorage.setItem("isLogin",1)
 			$('.login').addClass('test'); //倾斜特效
 			setTimeout( function() {
 				$('.login').addClass('testtwo'); //平移特效
@@ -70,10 +70,16 @@ export default class Login extends Component {
 				$('.login').removeClass('test');
 				var user_name = $('input[name="login"]').val()
 				var password = $('input[name="pwd"]').val()
+
+
 				$.ajax({
 					url:'router.json',
 					type: 'get',
 					dataType: 'json',
+					data : {
+						user_name:user_name,
+						password: password
+					},
 					success: (res)=> {
 						if (user_name === res.user_name && password === res.password) {
 							//登录成功
@@ -81,18 +87,25 @@ export default class Login extends Component {
 							$('.success').fadeIn(1000);
 							$('.success').html('登录成功');
 						// 	//跳转操作
-							
+							sessionStorage.setItem('user_name',JSON.stringify(user_name));
+							sessionStorage.setItem('isLogin',1);
+							window.location.href='/'
 						} else {
 							$('.login div').fadeOut(100);
 							$('.success').fadeIn(1000);
+							$('#btn').fadeIn(1000)
 							$('.success').html('登录失败');
 							// this.props.history.push('/')
-							window.location.href='/home'
 						}
 					}
 				})
 				
 			}, 2400);
+			$('#btn').click(function(){
+				$('#btn').hide()
+				$('.success').html('');
+				$('.login div').fadeIn(500);
+			})
 		})
 	}
 	
@@ -129,14 +142,16 @@ export default class Login extends Component {
                             </div>
                             <input type='text' name="code"  maxLength="4" placeholder='验证码' name="ValidateNum" />
                             <div className='validation' style={{opacity: 1,right: '-5px',top: '-3px'}}>
-                                <canvas className="J_codeimg" id="myCanvas" onClick={this.Code}></canvas>
+                                <canvas className="J_codeimg" id="myCanvas"></canvas>
                             </div>
                         </div>
 						<div className='login_fields__submit'>
                             <input type='button' value='登录' />
                         </div>
 					</div>
-					<div className='success'></div>	
+					<div className='success'></div>
+
+					<button type='button'  id='btn'> 重新登陆 </button>
 					<div className='disclaimer'>
 						<p>欢迎登陆后台管理系统</p>
 					</div>

@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
-import { Button } from 'antd'
-import './index.css'
+import Breadcrumb from '../Breadcrumb/index'
 
-export default class App extends Component {
+export default class Home extends Component {
     render (){
         return (
-            <Button type='primary'>Home页面</Button>
+            <div>
+                <Breadcrumb />
+                <div style={{border:'1px pink solid'}}>
+                    首页
+                </div>
+            </div>
         )
     }
 }

@@ -184,7 +184,7 @@ body {
   body .login_fields__submit .forgot a {
     color: #606479;
   }
-  body .login_fields__submit input {
+  body .login_fields__submit input, #btn {
     border-radius: 50px;
     background: transparent;
     padding: 10px 50px;
@@ -196,6 +196,11 @@ body {
             transition-property: background,color;
     -webkit-transition-duration: .2s;
             transition-duration: .2s;
+  }
+  #btn {
+    display: block;
+    margin: 90px auto 0 auto;
+
   }
   body .login_fields__submit input:focus {
     box-shadow: none;
@@ -210,7 +215,19 @@ body {
     -webkit-transition-duration: .2s;
             transition-duration: .2s;
   }
-  
+  body #btn:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  body #btn:hover {
+    color: white;
+    background: #4FA1D9;
+    cursor: pointer;
+    -webkit-transition-property: background,color;
+    transition-property: background,color;
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
+  }
   /* Color Schemes */
   .love {
     position: absolute;
