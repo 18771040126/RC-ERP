@@ -20,17 +20,45 @@ export default class ContentMain extends Component {
     render () {
         return (
               <Switch>
-                    <AuthRouter path="/store/linping" component={Linping} />
-                    <AuthRouter path="/store/xihu" component={Xihu} />
-                    <AuthRouter path="/store/xiasha" component={Xiasha} />
-                    <AuthRouter path="/store/binjiang" component={Binjiang} />
-                    <AuthRouter path="/cluster/ceo" component={Ceo} />
-                    <AuthRouter path="/cluster/cfo" component={Cfo} />
-                    <AuthRouter path="/cluster/cuo" component={Cuo} />
-                    <AuthRouter path="/cluster/cbo" component={Cbo} />
-                    <AuthRouter path="/input" component={Input} />
-                    <AuthRouter path="/button" component={Button} />
-                    <AuthRouter path="/radio" component={Radio} />
+                    <AuthRouter path="/customer/main" component={Linping} />
+                    <AuthRouter path="/customer/separate" component={Xihu} />
+                    <AuthRouter path="/customer/shop" component={Xiasha} />
+
+                    <AuthRouter path="/apply/adopt" component={Binjiang} />
+                    <AuthRouter path="/apply/back" component={Ceo} />
+
+                    <AuthRouter path="/purchase/shop" component={Cfo} />
+                    <AuthRouter path="/purchase/separate" component={Cuo} />
+                    <AuthRouter path="/purchase/main" component={Cbo} />
+
+                    <AuthRouter path="/apply/recovery" component={Input} />
+                    <AuthRouter path="/apply/my" component={Button} />
+
+                  <AuthRouter path="/counterpurchase/shop" component={Radio} />
+                  <AuthRouter path="/counterpurchase/separate" component={Radio} />
+                  <AuthRouter path="/counterpurchase/main" component={Radio} />
+
+
+                  <AuthRouter path="/stock/main" component={Radio} />
+                  <AuthRouter path="/stock/my" component={Radio} />
+                  <AuthRouter path="/stock/record" component={Radio} />
+                  <AuthRouter path="/stock/addNew" component={Radio} />
+
+                  <AuthRouter path="/finance/saleReport" component={Radio} />
+                  <AuthRouter path="/finance/accountStatement" component={Radio} />
+                  <AuthRouter path="/finance/cash" component={Radio} />
+
+                  <AuthRouter path="/service/list" component={Radio} />
+                  <AuthRouter path="/service/onSale" component={Radio} />
+                  <AuthRouter path="/service/my" component={Radio} />
+
+                  <AuthRouter path="/info/mechanism" component={Radio} />
+                  <AuthRouter path="/info/cash" component={Radio} />
+
+                  <AuthRouter path="/user/addNew" component={Radio} />
+                  <AuthRouter path="/user/list" component={Radio} />
+
+
                     <AuthRouter path="/" component={Home} />
               </Switch>
           )
