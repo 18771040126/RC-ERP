@@ -95,7 +95,6 @@ export default class Login extends Component {
 							$('.success').fadeIn(1000);
 							$('#btn').fadeIn(1000)
 							$('.success').html('登录失败');
-							// this.props.history.push('/')
 						}
 					}
 				})

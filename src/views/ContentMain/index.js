@@ -1,16 +1,21 @@
 import React,{ Component } from 'react' ;
-import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+// import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 import AuthRouter from '../../components/AuthRouter/AuthRouter'
 import Home from '../../components/home/index'
-import Linping from '../../components/linping_store/index'
-import Xihu from '../../components/xihu_store/index'
-import Xiasha from '../../components/xiasha_store/index'
-import Binjiang from '../../components/binjiang_store/index'
-import Ceo from '../../components/ceo_cluster/index'
-import Cfo from '../../components/cfo_cluster/index'
-import Cuo from '../../components/cuo_cluster/index'
-import Cbo from '../../components/cbo_cluster/index'
+
+import customerMain from '../../components/customerMain/index'
+import customerSeparate from '../../components/customerSeparate/index'
+import customerShop from '../../components/customerShop/index'
+
+import applyAdopt from '../../components/applyAdopt/index'
+import applyBack from '../../components/applyBack/index'
+
+import purchaseShop from '../../components/purchaseMain/index'
+import purchaseSeparate from '../../components/purchaseSeparate/index'
+import purchaseMain from '../../components/purchaseShop/index'
+
 import Input from '../../components/input/index'
 import Button from '../../components/button/index'
 import Radio from '../../components/radio/index'
@@ -20,16 +25,16 @@ export default class ContentMain extends Component {
     render () {
         return (
               <Switch>
-                    <AuthRouter path="/customer/main" component={Linping} />
-                    <AuthRouter path="/customer/separate" component={Xihu} />
-                    <AuthRouter path="/customer/shop" component={Xiasha} />
+                    <AuthRouter path="/customer/main" component={customerMain} />
+                    <AuthRouter path="/customer/separate" component={customerSeparate} />
+                    <AuthRouter path="/customer/shop" component={customerShop} />
 
-                    <AuthRouter path="/apply/adopt" component={Binjiang} />
-                    <AuthRouter path="/apply/back" component={Ceo} />
+                    <AuthRouter path="/apply/adopt" component={applyAdopt} />
+                    <AuthRouter path="/apply/back" component={applyBack} />
 
-                    <AuthRouter path="/purchase/shop" component={Cfo} />
-                    <AuthRouter path="/purchase/separate" component={Cuo} />
-                    <AuthRouter path="/purchase/main" component={Cbo} />
+                    <AuthRouter path="/purchase/shop" component={purchaseShop} />
+                    <AuthRouter path="/purchase/separate" component={purchaseSeparate} />
+                    <AuthRouter path="/purchase/main" component={purchaseMain} />
 
                     <AuthRouter path="/apply/recovery" component={Input} />
                     <AuthRouter path="/apply/my" component={Button} />
