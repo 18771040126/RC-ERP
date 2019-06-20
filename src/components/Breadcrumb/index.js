@@ -1,4 +1,4 @@
-import React, {Component,Fragment} from 'react';
+import React, {Component} from 'react';
 import {Breadcrumb, Icon} from 'antd'
 import {Link} from 'react-router-dom'
 
@@ -12,7 +12,7 @@ export default class Breadcrumd extends Component {
     }
     render() {
         return (
-            <Breadcrumb style={{marginBottom:14,border:'1px green solid'}}>
+            <Breadcrumb style={{marginBottom:14,background:'#fff',padding: '16px 24px 0 24px'}}>
                 <Breadcrumb.Item>
                     <Link to='/'><Icon type="home" style={{fontSize:'16px',marginBottom:'16px'}}/></Link>
                 </Breadcrumb.Item>
@@ -20,20 +20,13 @@ export default class Breadcrumd extends Component {
                     this.props.arr && this.props.arr.map(item=> {
                         if((typeof item) === 'object'){
                             return (
-                                    <Fragment>
-                                        <Breadcrumb.Item key={item.title}>
-                                            <Link to={item.to}>{item.title}</Link>
-                                        </Breadcrumb.Item>
-                                        <h3>{item.title}</h3>
-                                    </Fragment>
-                                    )
+                                    <Breadcrumb.Item key={item.title}>
+                                        <Link to={item.to}>{item.title}</Link>
+                                    </Breadcrumb.Item>
+                                )
                                 }else {
-                                    return (
-                                        <Fragment>
-                                            <Breadcrumb.Item key={item}>{item}</Breadcrumb.Item>
-                                            <h3>{item}</h3>
-                                        </Fragment>
-                                    )
+                                    return <Breadcrumb.Item key={item}>{item}</Breadcrumb.Item>
+                                   
                                 }
                     })
 

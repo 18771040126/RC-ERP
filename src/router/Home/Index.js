@@ -7,7 +7,7 @@ import SiderNav from '../../views/SiderNav/index'
 import HeaderBar from '../../views/HeaderBar/index'
 import ContentMain from '../../views/ContentMain/index'
 
-const {Sider, Header, Content} = Layout;
+const {Sider, Header} = Layout;
 export default class Index extends Component {
     constructor(){
         super();
@@ -30,10 +30,10 @@ export default class Index extends Component {
                     <SiderNav collapsed={this.state.collapsed}/>
                 </Sider>
                 <Layout>
-                    <Header style={{background:'#fff',padding: '0'}}>
+                    <Header style={{background:'#fff',padding: '0',borderBottom:'2px #ccc solid'}}>
                         <HeaderBar toggle={this.onToggle} />
                     </Header>
-                    <div style={{background:'#fff',height:'100vh',padding: '16px 24px',border:'1px red solid'}}>
+                    <div>
                         <ContentMain  />
                     </div>
                 </Layout>

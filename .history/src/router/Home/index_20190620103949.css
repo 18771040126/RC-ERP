@@ -1,0 +1,8 @@
+@import '~antd/dist/antd.css';
+
+.content_container {
+    height: 100vh;
+    background-color: #fff;
+    padding: 16px, 24px;
+    margin: 16px 24px;
+}

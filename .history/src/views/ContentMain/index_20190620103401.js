@@ -1,0 +1,73 @@
+import React,{ Component } from 'react' ;
+// import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+import { Switch } from 'react-router-dom';
+
+import AuthRouter from '../../components/AuthRouter/AuthRouter'
+import Error from '../../components/Error/index'
+
+import CustomerMain from '../../components/customerMain/index'
+import CustomerSeparate from '../../components/customerSeparate/index'
+import CustomerShop from '../../components/customerShop/index'
+
+import ApplyAdopt from '../../components/applyAdopt/index'
+import ApplyBack from '../../components/applyBack/index'
+
+import PurchaseShop from '../../components/purchaseMain/index'
+import PurchaseSeparate from '../../components/purchaseSeparate/index'
+import PurchaseMain from '../../components/purchaseShop/index'
+
+import ApplyRecovery from '../../components/applyRecovery/index'
+import ApplyMy from '../../components/applyMy/index'
+
+
+import RepurchaseSeparate from '../../components/repurchaseSeparate/index'
+import RepurchaseMain from '../../components/repurchaseMain/index'
+
+
+export default class ContentMain extends Component {
+    render () {
+        return (
+              <Switch>
+                    <AuthRouter path="/customer/main" component={CustomerMain} />
+                    <AuthRouter path="/customer/separate" component={CustomerSeparate} />
+                    <AuthRouter path="/customer/shop" component={CustomerShop} />
+
+                    <AuthRouter path="/apply/adopt" component={ApplyAdopt} />
+                    <AuthRouter path="/apply/back" component={ApplyBack} />
+
+                    <AuthRouter path="/purchase/shop" component={PurchaseShop} />
+                    <AuthRouter path="/purchase/separate" component={PurchaseSeparate} />
+                    <AuthRouter path="/purchase/main" component={PurchaseMain} />
+
+                    <AuthRouter path="/apply/recovery" component={ApplyRecovery} />
+                    <AuthRouter path="/apply/my" component={ApplyMy} />
+
+                    <AuthRouter path="/repurchase/separate" component={RepurchaseSeparate} />
+                    <AuthRouter path="/repurchase/main" component={RepurchaseMain} />
+
+
+                    <AuthRouter path="/stock/main" component={Error} />
+                    <AuthRouter path="/stock/my" component={Error} />
+                    <AuthRouter path="/stock/record" component={Error} />
+                    <AuthRouter path="/stock/addNew" component={Error} />
+
+                    <AuthRouter path="/finance/saleReport" component={Error} />
+                    <AuthRouter path="/finance/accountStatement" component={Error} />
+                    <AuthRouter path="/finance/cash" component={Error} />
+
+                    <AuthRouter path="/service/list" component={Error} />
+                    <AuthRouter path="/service/onSale" component={Error} />
+                    <AuthRouter path="/service/my" component={Error} />
+
+                    <AuthRouter path="/info/mechanism" component={Error} />
+                    <AuthRouter path="/info/cash" component={Error} />
+
+                    <AuthRouter path="/user/addNew" component={Error} />
+                    <AuthRouter path="/user/list" component={Error} />
+
+
+                    <AuthRouter path="/" component={Home} />
+              </Switch>
+          )
+      }
+}
